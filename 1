@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main ()
+{
+    int d,i,j,x;
+    const int N=5;
+    int mas[N]= {2,-8,-3,14,0};
+    for (d=N/2; d>0; d=d/2)
+    {
+        for (i=d; i<N;i++)
+        {
+            for (x=mas[i], j=i; j>=d; j-=d)
+            {
+                if (x<mas[j-d])
+                {
+                    mas[j] = mas[j-d];
+                }
+                else break;
+            }
+            mas[j]=x;
+        }
+    }
+    for (i=0;i<N;i++)
+    {
+        printf("%d ", mas[i]);
+    }
+}
